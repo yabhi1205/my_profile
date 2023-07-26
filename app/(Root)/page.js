@@ -6,13 +6,13 @@ import Projects from "./Components/projects";
 import Skills from "./Components/skills";
 export default function Home() {
     return (
-        <div className="scroll-smooth">
+        <div>
             <Nav />
             <Branding />
             <Skills />
+            <Projects/>
             <Education/>
             <Contact/>
-            {/* <Projects/> */}
         </div>
     )
 }

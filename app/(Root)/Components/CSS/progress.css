@@ -8,7 +8,7 @@
 }
 
 .circle-progress {
-  stroke: red;
+  stroke: rgb(0, 255, 64);
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -16,15 +16,11 @@
 .circle-text {
   font-size: 3.7em;
   font-weight: bold;
-  fill: red;
+  fill: rgb(0, 255, 64);
 }
 
 .abhi-overflow{
   overflow-x: hidden !important;
-}
-
-.abhinav{
-  border: red 2px solid;
 }
 
 body{
@@ -34,9 +30,13 @@ body{
 
 *{
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .active{
   border: blue solid 2px ;
   box-shadow: blue 0.1rem .1rem .1rem .1rem;
 }
+/* html{
+  scroll-behavior: smooth;
+} */
