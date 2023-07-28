@@ -19,7 +19,7 @@ export default function Skills() {
     
     return (
         <>
-            <p className="w-screen text-8xl uppercase align-middle justify-center text-center pb-20 ">Skills</p>
+            <p className="w-screen text-6xl uppercase align-middle justify-center text-center pb-20 ">Skills</p>
             <div className="flex  px-4 mx-auto w-10/12 ">
                 <div className="w-3/5 h-auto grid grid-rows-4 grid-flow-col gap-4">
                     {skillList.map((users) => {

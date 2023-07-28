@@ -19,24 +19,84 @@
   fill: rgb(0, 255, 64);
 }
 
-.abhi-overflow{
+.abhi-overflow {
   overflow-x: hidden !important;
 }
 
-body{
+body {
   width: 100vw;
   overflow-x: hidden;
 }
 
-*{
+* {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
-.active{
-  border: blue solid 2px ;
+.active {
+  border: blue solid 2px;
   box-shadow: blue 0.1rem .1rem .1rem .1rem;
 }
+
 /* html{
   scroll-behavior: smooth;
 } */
+
+
+
+.typer {
+  content: "";
+  display: flex;
+}
+
+.typer::after {
+  content: "";
+  animation: type linear infinite 1s;
+}
+
+@keyframes type {
+  0% {
+    content: ".";
+  }
+
+  50% {
+    content: "..";
+  }
+
+  100% {
+    content: "...";
+  }
+}
+
+.cursor::after {
+  content: "";
+  animation: cursor linear infinite 1s;
+}
+
+@keyframes cursor {
+  from {
+    content: "";
+  }
+
+  to {
+    content: "|";
+  }
+}
+
+.image {
+  position: relative;
+}
+
+.image:hover .image_rt{
+  animation: image_rt 1s ease-in forwards;
+}
+
+@keyframes image_rt {
+  from{
+    rotate: 0deg;
+  }
+  to{
+    rotate: 15deg;
+    scale: 125%;
+  }
+}

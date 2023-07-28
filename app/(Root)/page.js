@@ -1,3 +1,4 @@
+import About from "./Components/about";
 import Branding from "./Components/branding";
 import Contact from "./Components/contact";
 import Education from "./Components/education";
@@ -10,6 +11,7 @@ export default function Home() {
             <Nav />
             <Branding />
             <Skills />
+            <About/>
             <Projects/>
             <Education/>
             <Contact/>

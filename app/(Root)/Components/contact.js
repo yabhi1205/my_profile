@@ -2,7 +2,7 @@
 export default function Contact() {
     return (
         <div className="w-5/12 mx-auto mb-32">
-            <h1 className="text-5xl font-semibold pb-8">Contact</h1>
+            <h1 className="text-6xl font-semibold pb-8">Contact</h1>
             <form>
                 <div className="grid md:grid-cols-2 md:gap-6">
                     <div className="relative z-0 w-full mb-6 group">

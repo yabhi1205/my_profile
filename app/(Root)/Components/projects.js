@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { data } from "./DATA/data"
 import Modal from "./modal"
 export default function Projects() {
@@ -11,9 +11,10 @@ export default function Projects() {
             <div className="w-10/12 m-auto grid grid-flow-row grid-cols-3">
                 {data.map((project) => {
                     return (
-                        <div key={project.name} className="max-w-sm m-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <p className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{project.name}</p>
-                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{project.description.length > 100 ? `${project.description.slice(0, 100)}...` : project.description}</p>
+                        <div key={project.name} className="max-w-sm m-4 p-6 image border border-gray-200 rounded-lg shadow bg-transparent overflow-hidden">
+                            <img className="absolute image_rt w-5/5 h-5/5 top-0 left-0 scale-125 -z-10 opacity-40" src="https://img.freepik.com/premium-photo/top-view-workspace-with-copy-space_23-2148236849.jpg?w=740"/>
+                            <p className="mb-2 text-2xl font-bold tracking-tight text-white opacity-100 dark:text-white">{project.name}</p>
+                            <p className="mb-3 font-normal text-white dark:text-white">{project.description.length > 100 ? `${project.description.slice(0, 100)}...` : project.description}</p>
                             <button type="button" key={project.name} onClick={(e) => { setProject(e.target.name); setHidden(true) }} name={JSON.stringify(project)} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Know More
                                 <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
