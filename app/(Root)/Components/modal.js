@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react"
-
 export default function Modal({ projects, hidden, setHidden }) {
     let project = projects ? JSON.parse(projects) : null
     return (

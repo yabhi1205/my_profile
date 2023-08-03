@@ -8,7 +8,7 @@ export default function Projects() {
     return (
         <>
             <h1 id="projects" className="text-5xl text-center mt-20 mb-12">Projects</h1>
-            <div className="w-10/12 m-auto grid grid-flow-row grid-cols-3">
+            <div className="w-10/12 m-auto max-lg:flex-cols lg:grid lg:grid-flow-row lg:grid-cols-3">
                 {data.map((project) => {
                     return (
                         <div key={project.name} className="max-w-sm m-4 p-6 image border border-gray-200 rounded-lg shadow bg-transparent overflow-hidden">

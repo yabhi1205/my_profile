@@ -6,7 +6,7 @@ import ReactTypingEffect from "react-typing-effect"
 // import { useEffect } from "react";
 export default function Branding() {
     return (
-        <div className="flex h-screen w-screen text-center justify-center content-center items-center align-middle">
+        <div id="navbar" className="flex h-screen w-screen text-center justify-center content-center items-center align-middle">
             <div className="">
                 <h1 className="text-5xl pb-2">Abhinav Yadav</h1>
                 <div>

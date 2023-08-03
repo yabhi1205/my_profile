@@ -1,7 +1,7 @@
 "use client"
 export default function Contact() {
     return (
-        <div className="w-5/12 mx-auto mb-32">
+        <div id="contact" className="lg:w-5/12 max-lg:w-screen max-lg:px-5 mx-auto mb-32">
             <h1 className="text-6xl font-semibold pb-8">Contact</h1>
             <form>
                 <div className="grid md:grid-cols-2 md:gap-6">

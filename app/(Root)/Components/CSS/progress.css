@@ -19,10 +19,6 @@
   fill: rgb(0, 255, 64);
 }
 
-.abhi-overflow {
-  overflow-x: hidden !important;
-}
-
 body {
   width: 100vw;
   overflow-x: hidden;
@@ -69,17 +65,21 @@ body {
 }
 
 .cursor::after {
-  content: "";
-  animation: cursor linear infinite 1s;
+  content: "|";
+  color: white;
+  font-weight: bolder;
+  height:fit-content;
+  position:sticky;
+  animation:steps(2) cursor infinite 1s;
 }
 
 @keyframes cursor {
   from {
-    content: "";
+    opacity: 0%;
   }
 
   to {
-    content: "|";
+    opacity: 100%;
   }
 }
 
@@ -99,4 +99,8 @@ body {
     rotate: 15deg;
     scale: 125%;
   }
+}
+
+.scroll{
+  background-color: rgba(78, 78, 78, 0.562);
 }

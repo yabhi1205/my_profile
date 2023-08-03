@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 export default function Circular({ maxPercentage }) {
     const [percentage, setPercentage] = useState(0);
+    const [sqSize, setSqSize] = useState(window.innerWidth > 400 ? 350 : window.innerWidth * .8)
     // Function to update the percentage at regular intervals
     const updatePercentage = () => {
         // const maxPercentage = 70;
@@ -23,8 +24,18 @@ export default function Circular({ maxPercentage }) {
     useEffect(() => {
         updatePercentage();
     }, [maxPercentage]);
+    useEffect(() => {
+        console.log(window)
+        window.addEventListener('resize', () => {
+            if(window!=undefined){
+                setSqSize(window.innerWidth > 400 ? 350 : window.innerWidth * .8)
+            }
+        })
+    }, [window.innerWidth])
 
-    let sqSize = 350
+
+    // let sqSize = window.innerWidth>400 ? 350: window.innerWidth*.8
+    console.log(window.innerWidth)
     // let percentage = 75
     let strokeWidth = 15
 
@@ -37,9 +48,10 @@ export default function Circular({ maxPercentage }) {
     const dashOffset = dashArray - dashArray * percentage / 100;
 
     return (
-        <div className="w-[20rem]" >
+        <div className="w-full px-0 mx-auto" >
 
             <svg
+                className='mx-auto'
                 width={sqSize}
                 height={sqSize}
                 viewBox={viewBox}
@@ -52,7 +64,7 @@ export default function Circular({ maxPercentage }) {
                     strokeWidth={`${strokeWidth}px`}
                 />
                 <circle
-                    className="circle-progress"
+                    className="circle-progress w-full"
                     cx={sqSize / 2}
                     cy={sqSize / 2}
                     r={radius}
