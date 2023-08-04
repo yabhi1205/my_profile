@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 export default function Circular({ maxPercentage }) {
     const [percentage, setPercentage] = useState(0);
-    const [sqSize, setSqSize] = useState(window.innerWidth > 400 ? 350 : window.innerWidth * .8)
+    const [sqSize, setSqSize] = useState(0)
     // Function to update the percentage at regular intervals
     const updatePercentage = () => {
         // const maxPercentage = 70;
@@ -25,17 +25,17 @@ export default function Circular({ maxPercentage }) {
         updatePercentage();
     }, [maxPercentage]);
     useEffect(() => {
-        console.log(window)
+        setSqSize(window.innerWidth > 400 ? 350 : window.innerWidth * .8)
         window.addEventListener('resize', () => {
+
             if(window!=undefined){
                 setSqSize(window.innerWidth > 400 ? 350 : window.innerWidth * .8)
             }
         })
-    }, [window.innerWidth])
+    }, [])
 
 
     // let sqSize = window.innerWidth>400 ? 350: window.innerWidth*.8
-    console.log(window.innerWidth)
     // let percentage = 75
     let strokeWidth = 15
 
