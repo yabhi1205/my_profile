@@ -1,4 +1,4 @@
-import '../globals.css'
+import './globals.css'
 import "./Components/CSS/progress.css"
 import { Inter } from 'next/font/google'
 

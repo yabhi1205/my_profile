@@ -87,20 +87,50 @@ body {
   position: relative;
 }
 
+/* .image>.image_rt{
+  animation: image_rt 1s ease-in backwards ;
+} */
+
+.image_rt{
+  height: fit-content;
+  animation: image_rev .6s ease-in forwards;
+}
+
 .image:hover .image_rt{
-  animation: image_rt 1s ease-in forwards;
+  animation: image_rt .6s ease-in forwards;
+}
+
+
+@keyframes image_rev {
+  from{
+    transform: rotate(15deg);
+    scale: 150%;
+  }
+  to{
+    transform: rotate(0deg);
+    scale: 110%;
+  }
 }
 
 @keyframes image_rt {
   from{
-    rotate: 0deg;
+    transform: rotate(0deg);
+    scale: 110%;
   }
   to{
-    rotate: 15deg;
-    scale: 125%;
+    /* rotate: 15deg; */
+    transform: rotate(15deg);
+    /* transform: scale(125%); */
+    scale: 150%;
   }
 }
 
 .scroll{
   background-color: rgba(78, 78, 78, 0.562);
 }
+.scroll_dark{
+  background-color: rgba(78, 78, 78);
+}
+
+/* .circular{
+} */

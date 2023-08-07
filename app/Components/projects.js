@@ -11,7 +11,7 @@ export default function Projects() {
             <div className="w-10/12 m-auto max-lg:flex-cols lg:grid lg:grid-flow-row lg:grid-cols-3">
                 {data.map((project) => {
                     return (
-                        <div key={project.name} className="max-w-sm m-4 p-6 image border border-gray-200 rounded-lg shadow bg-transparent overflow-hidden">
+                        <div key={project.name} className=" select-none max-w-sm m-4 p-6 image border border-gray-200 rounded-lg shadow bg-transparent overflow-hidden">
                             <img className="absolute image_rt w-5/5 h-5/5 top-0 left-0 scale-125 -z-10 opacity-40" src="https://img.freepik.com/premium-photo/top-view-workspace-with-copy-space_23-2148236849.jpg?w=740"/>
                             <p className="mb-2 text-2xl font-bold tracking-tight text-white opacity-100 dark:text-white">{project.name}</p>
                             <p className="mb-3 font-normal text-white dark:text-white">{project.description.length > 100 ? `${project.description.slice(0, 100)}...` : project.description}</p>

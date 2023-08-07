@@ -39,7 +39,7 @@ export default function Circular({ maxPercentage }) {
     // let percentage = 75
     let strokeWidth = 15
 
-    const radius = (sqSize - strokeWidth) / 2;
+    const radius = ((sqSize - strokeWidth) / 2)>0?((sqSize - strokeWidth) / 2):0 ;
     // Enclose circle in a circumscribing square
     const viewBox = `0 0 ${sqSize} ${sqSize}`;
     // Arc length at 100% coverage is the circle circumference
