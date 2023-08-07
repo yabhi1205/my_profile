@@ -19,15 +19,15 @@ const sendotp = async (Email = process.env.userkanaam, Otp = "Thanks For Contact
             subject: "Contact from Portfolio",
             text: Otp,
         }
-        resolve("success")
-        // transporter.sendMail(option, async (error, info) => {
-        //     if (info) {
-        //         resolve("success")
-        //     }
-        //     else {
-        //         reject(error)
-        //     }
-        // })
+        // resolve("success")
+        transporter.sendMail(option, async (error, info) => {
+            if (info) {
+                resolve("success")
+            }
+            else {
+                reject(error)
+            }
+        })
     })
 }
 
