@@ -14,7 +14,7 @@ export default function Projects() {
                         <div key={project.name} className=" select-none max-w-sm m-4 p-6 image border border-gray-200 rounded-lg shadow bg-transparent overflow-hidden">
                             <img className="absolute image_rt w-5/5 h-5/5 top-0 left-0 scale-125 -z-10 opacity-40" src="https://img.freepik.com/premium-photo/top-view-workspace-with-copy-space_23-2148236849.jpg?w=740"/>
                             <p className="mb-2 text-2xl font-bold tracking-tight text-white opacity-100 dark:text-white">{project.name}</p>
-                            <p className="mb-3 font-normal text-white dark:text-white">{project.description.length > 100 ? `${project.description.slice(0, 100)}...` : project.description}</p>
+                            <div className="mb-3 font-normal text-white dark:text-white">{project.description.p.length > 100 ? `${project.description.p.slice(0, 100)}...` : project.description.p}</div>
                             <button type="button" key={project.name} onClick={(e) => { setProject(e.target.name); setHidden(true) }} name={JSON.stringify(project)} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Know More
                                 <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">

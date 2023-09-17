@@ -8,13 +8,13 @@
 }
 
 .circle-progress {
-  stroke: rgb(0, 255, 64);
+  stroke: rgb(255, 102, 0);
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
 .circle-text {
-  font-size: 3.7em;
+  font-size: 3em;
   font-weight: bold;
   fill: rgb(0, 255, 64);
 }

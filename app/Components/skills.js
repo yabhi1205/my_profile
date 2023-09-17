@@ -6,7 +6,8 @@ export default function Skills() {
         { name: "HTML", value: 60 },
         { name: "CSS", value: 70 },
         { name: "JavaScript", value: 80 },
-        { name: "React.js", value: 40 },
+        { name: "React.js", value: 50 },
+        { name: "Next.js", value: 40 },
         { name: "Node.js", value: 80 },
         { name: "Python", value: 75 },
         { name: "MongoDB", value: 84 },
@@ -18,7 +19,7 @@ export default function Skills() {
     }, [])
     
     return (
-        <div id='skills'>
+        <div id='skills' className='mb-20'>
             <p className="w-screen text-6xl uppercase align-middle justify-center text-center mb-20 ">Skills</p>
             <div className="xl:flex xl:px-4 mx-auto xl:w-10/12 max-xl:w-full max-xl:px-6 max-xl:flex max-xl:flex-col-reverse">
                 <div className="w-3/5 h-auto lg:grid lg:grid-rows-4 lg:grid-flow-col lg:gap-4 max-xl:w-full max-lg:flex-wrap max-lg:mb-16">

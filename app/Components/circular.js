@@ -65,6 +65,7 @@ export default function Circular({ maxPercentage }) {
                 />
                 <circle
                     className="circle-progress w-full"
+                    // style={{}}
                     cx={sqSize / 2}
                     cy={sqSize / 2}
                     r={radius}
@@ -72,18 +73,19 @@ export default function Circular({ maxPercentage }) {
                     // Start progress marker at 12 O'Clock
                     transform={`rotate(-90 ${sqSize / 2} ${sqSize / 2})`}
                     style={{
+                        stroke:percentage<45?"rgb(0, 255, 64)":(percentage>75?"rgb(255, 108, 0)":"rgb(211, 235, 0)"),
                         strokeDasharray: dashArray,
                         strokeDashoffset: dashOffset
                     }}
                 />
                 <text
-                    className="text-3xl circle-text"
+                    className="text-xl circle-text"
                     x="50%"
                     y="50%"
                     dy=".3em"
                     textAnchor="middle"
                 >
-                    {`${percentage}%`}
+                    {`${percentage<45?"Beginner":(percentage>75?"Expert":"Intermediate")}`}
                 </text>
             </svg>
         </div>
