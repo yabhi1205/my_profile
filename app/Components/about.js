@@ -2,6 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 import { info } from "./DATA/data"
 import { TypeAnimation } from "react-type-animation";
+import Image from "next/image";
+import profile from "./pictures/Profile.webp"
 
 export default function About() {
     const elementRef = useRef()
@@ -26,14 +28,15 @@ export default function About() {
     }, [elementRef]);
     return (
         <>
+        <div id="aboutSection" value="navAboutme">
             <h1 ref={elementRef} className="text-6xl pb-6 text-center">About Me</h1>
             <div id="aboutme" className="mt-10 mb-10 flex max-lg:flex-col-reverse max-lg:w-full">
                 {isVisible && <div className="w-5/12 max-lg:w-full lg:pl-20 px-5 py-10 h-full">
                     <div id="typer" className="typer pb-3 text-red-700">
                         {typer}
                     </div>
-                    <TypeAnimation cursor={false} speed={50} sequence={[
-                        3000,
+                    <TypeAnimation cursor={false} speed={85} sequence={[
+                        1500,
                         () => {
                             setTyper("Typing")
                             document.getElementById("cursor").classList.add("cursor")
@@ -51,9 +54,10 @@ export default function About() {
                     <div id="cursor" className="h-full "></div>
                 </div>}
                 <div className="lg:w-7/12 p-4 max-lg:w-full container">
-                    <img className="mx-auto" src="./pictures/profile.jpg" />
+                    <Image className="mx-auto" color="white" width={500} height={500} src={profile} />
                 </div>
             </div>
+        </div>
         </>
     )
 }

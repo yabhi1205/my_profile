@@ -20,8 +20,9 @@
 }
 
 body {
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
+  margin: 0;
 }
 
 * {
@@ -129,8 +130,9 @@ body {
   background-color: rgba(78, 78, 78, 0.562);
 }
 .scroll_dark{
-  background-color: rgba(78, 78, 78);
+  background-color: rgba(129, 128, 128, 0.719);
 }
 
-/* .circular{
-} */
+.activeLink{
+  color: #1d4ed8 !important;
+}

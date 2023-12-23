@@ -3,17 +3,27 @@ import React, { useEffect, useState } from 'react';
 export default function Circular({ maxPercentage }) {
     const [percentage, setPercentage] = useState(0);
     const [sqSize, setSqSize] = useState(0)
+    const [setstrokergba, setSetstrokergba] = useState("")
     // Function to update the percentage at regular intervals
     const updatePercentage = () => {
         // const maxPercentage = 70;
-        const interval = 4; // 1000 milliseconds = 1 second
+        const interval = 10; // 1000 milliseconds = 1 second
 
         let currentPercentage = 0;
+        let rgba=[0,255,0,1]
 
         const updateInterval = setInterval(() => {
             currentPercentage += 1;
             setPercentage(Math.min(currentPercentage, maxPercentage));
-
+            if (rgba[0]<255){
+                rgba[0]+=5
+            }
+            else{
+                if(rgba[1]>100){
+                    rgba[1]-=5
+                }
+            }
+            setSetstrokergba(`rgb(${rgba[0]},${rgba[1]},${rgba[2]},${rgba[3]})`)
             if (currentPercentage >= maxPercentage) {
                 clearInterval(updateInterval);
             }
@@ -73,7 +83,8 @@ export default function Circular({ maxPercentage }) {
                     // Start progress marker at 12 O'Clock
                     transform={`rotate(-90 ${sqSize / 2} ${sqSize / 2})`}
                     style={{
-                        stroke:percentage<45?"rgb(0, 255, 64)":(percentage>75?"rgb(255, 108, 0)":"rgb(211, 235, 0)"),
+                        // stroke:percentage<45?"rgb(0, 255, 64)":(percentage>75?"rgb(255, 108, 0)":"rgb(211, 235, 0)"),
+                        stroke:setstrokergba,
                         strokeDasharray: dashArray,
                         strokeDashoffset: dashOffset
                     }}
@@ -85,7 +96,8 @@ export default function Circular({ maxPercentage }) {
                     dy=".3em"
                     textAnchor="middle"
                 >
-                    {`${percentage<45?"Beginner":(percentage>75?"Expert":"Intermediate")}`}
+                    {/* {`${percentage<45?"Beginner":(percentage>75?"Expert":"Intermediate")}`} */}
+                    Skills Level
                 </text>
             </svg>
         </div>

@@ -1,26 +1,72 @@
 "use client"
 import Link from "next/link"
 import { useEffect, useState } from "react";
-export default function Nav() {
+export default function Navbygpt() {
     const [smaller, setSmaller] = useState(false)
+    const [small, setSmall] = useState(false)
+    let currentElement="navbar"
+    const ListSections = ["navbar","aboutSection","projectsSection","contactSection"]
+    let smallsize=0
     useEffect(() => {
+        const viewHeight = window.innerHeight
         const nav = document.querySelector(".navbar");
         const dropdown = document.querySelector(".dropdown");
-        const LinkList = document.querySelector("#linkList")
-        console.log(LinkList)
-        nav.getElementsByTagName("nav")[0].classList.toggle("scroll", window.scrollY > 1);
+        const LinkList = document.querySelector("#LinkList")
+        ListSections.map((arr)=>{
+            var element = document.getElementById(arr)
+            document.getElementById(element.getAttribute("value")).classList.remove("activeLink")
+            if (element.getBoundingClientRect()["y"]>=0 && element.getBoundingClientRect()["y"]<(viewHeight/2)){
+                currentElement =((element.getAttribute("value")))
+                document.getElementById(currentElement)?document.getElementById(currentElement).classList.add("activeLink"):false;
+            }
+            else if (element.getBoundingClientRect()["y"]>(viewHeight/2)&& element.getBoundingClientRect()["y"]<viewHeight){
+                var index= ListSections.indexOf(element.getAttribute("id"))
+                currentElement = (document.getElementById(ListSections[index>0?index-1:0]).getAttribute("value"))
+                document.getElementById(currentElement).classList.add("activeLink")
+            }
+            else{
+                document.getElementById(currentElement).classList.add("activeLink")
+            }
+        })
+        nav.getElementsByTagName("nav")[0].classList.toggle("scroll", window.scrollY > 50);
+        console.log(window.scrollY)
         window.addEventListener("scroll", function (e) {
-            nav.getElementsByTagName("nav")[0].classList.toggle("scroll", window.scrollY > 1);
+            nav.getElementsByTagName("nav")[0].classList.toggle("scroll", window.scrollY > 50);
+            console.log(window.scrollY)
+            ListSections.map((arr)=>{
+                var element = document.getElementById(arr)
+                document.getElementById(element.getAttribute("value")).classList.remove("activeLink")
+                if (element.getBoundingClientRect()["y"]>=0 && element.getBoundingClientRect()["y"]<(viewHeight/2)){
+                    currentElement =((element.getAttribute("value")))
+                    document.getElementById(currentElement)?document.getElementById(currentElement).classList.add("activeLink"):false;
+                }
+                else if (element.getBoundingClientRect()["y"]>(viewHeight/2)&& element.getBoundingClientRect()["y"]<viewHeight){
+                    var index= ListSections.indexOf(element.getAttribute("id"))
+                    currentElement = (document.getElementById(ListSections[index>0?index-1:0]).getAttribute("value"))
+                    document.getElementById(currentElement).classList.add("activeLink")
+                }
+                else{
+                    document.getElementById(currentElement).classList.add("activeLink")
+                }
+            })
         });
         // }
     }, [])
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setSmall(window.scrollY > smallsize);
+            smallsize = window.scrollY
+        };
+
+        window.addEventListener("scroll", handleScroll);
+    }, []);
     return (
         <>
-            <div className="fixed w-screen m-0 max-h-max z-50 text-xl">
-
+            <div className={`fixed w-screen m-0 max-h-max z-50 text-xl transition-all duration-700 ${small ? '-top-20 ' : 'top-0'}`}>
                 <div className="navbar ">
                     <nav id="navtrans" className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                        <div className=" w-5/5 flex flex-row justify-between mx-0 p-4 md:mx-6 md:p-4">
+                    <div className=" w-5/5 flex flex-row justify-between mx-0 p-4 md:mx-6 md:p-4">
                             <Link href="" className="flex items-center" scroll={false} onClick={(e) => {
                                 e.preventDefault();
                                 document.getElementById("navbar").scrollIntoView({ behavior: "smooth" });
@@ -33,7 +79,6 @@ export default function Nav() {
                                     <button onClick={() => {
                                         setSmaller(!(smaller))
                                         document.getElementById("navtrans").classList.remove("scroll_dark")
-                                        // console.log(document.getElementById("navtrans").style.background-color)
 
                                     }} data-collapse-toggle="navbar-solid-bg" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-solid-bg" aria-expanded="false">
                                         <span className="sr-only">Close main menu</span>
@@ -42,7 +87,6 @@ export default function Nav() {
                                     : <button onClick={() => {
                                         setSmaller(!(smaller))
                                         document.getElementById("navtrans").classList.add("scroll_dark")
-                                        // console.log(document.getElementById("navtrans"))
 
                                     }} data-collapse-toggle="navbar-solid-bg" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-solid-bg" aria-expanded="false">
                                         <span className="sr-only">Open main menu</span>
@@ -53,10 +97,10 @@ export default function Nav() {
                                 }
 
                             </div>
-                            <div className="hidden w-fit md:block md:w-auto" id="navbar-solid-bg">
-                                <ul id="linkList" className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+                            <div className="hidden w-fit dark:text-blue-700 md:block md:w-auto" id="navbar-solid-bg">
+                                <ul id="LinkList" className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
                                     <li>
-                                        <Link id="navHome" href="#navbar" className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page"
+                                        <Link id="navHome" href="#navbar" className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent dark:text-blue-700" aria-current="page"
                                             scroll={false} onClick={(e) => {
                                                 e.preventDefault();
                                                 document.getElementById("navbar").scrollIntoView({ behavior: "smooth" });
@@ -95,9 +139,6 @@ export default function Nav() {
                 <div className="dropdown">
                     {smaller &&
                         <nav>
-                            {/* <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Dropdown button <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-                            </svg></button> */}
                             <div id="dropdown" className="animate-[wiggle_.6s_ease-in-out] z-50 w-full bg-white divide-y divide-gray-100 rounded-lg shadow text-center text-4xl opacity-90 dark:bg-gray-700">
                                 <ul className="py-2 text-xl text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                                     <li className="">
