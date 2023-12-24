@@ -17,6 +17,9 @@ module.exports = {
     // => @media (min-width: 1280px) { ... }
     // },
     extend: {
+      dropShadow:{
+        "profile":"0 0 .5rem #dbdbdb"
+      },
       keyframes: {
         wiggle: {
           '0%': {opacity:"20%" },
