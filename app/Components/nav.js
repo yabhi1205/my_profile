@@ -7,7 +7,7 @@ export default function Nav() {
         const nav = document.querySelector(".navbar");
         const dropdown = document.querySelector(".dropdown");
         const LinkList = document.querySelector("#linkList")
-        console.log(LinkList)
+        // console.log(LinkList)
         nav.getElementsByTagName("nav")[0].classList.toggle("scroll", window.scrollY > 1);
         window.addEventListener("scroll", function (e) {
             nav.getElementsByTagName("nav")[0].classList.toggle("scroll", window.scrollY > 1);

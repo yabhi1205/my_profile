@@ -29,10 +29,8 @@ export default function Navbygpt() {
             }
         })
         nav.getElementsByTagName("nav")[0].classList.toggle("scroll", window.scrollY > 50);
-        console.log(window.scrollY)
         window.addEventListener("scroll", function (e) {
             nav.getElementsByTagName("nav")[0].classList.toggle("scroll", window.scrollY > 50);
-            console.log(window.scrollY)
             ListSections.map((arr)=>{
                 var element = document.getElementById(arr)
                 document.getElementById(element.getAttribute("value")).classList.remove("activeLink")

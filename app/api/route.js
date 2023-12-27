@@ -19,13 +19,13 @@ const sendotp = async (Email = process.env.userkanaam, Otp = "Thanks For Contact
             subject: "Contact from Portfolio",
             text: Otp,
         }
-        // resolve("success")
+        // resolve(true)
         transporter.sendMail(option, async (error, info) => {
             if (info) {
-                resolve("success")
+                resolve(true)
             }
             else {
-                reject(error)
+                reject(false)
             }
         })
     })
@@ -37,22 +37,15 @@ export const POST = async (req) => {
         if (reqBody.email) {
             if (/\S+@\S+\.\S+/.test(reqBody.email)) {
                 await sendotp(reqBody.email)
-                // console.log(reply)
             }
             else {
                 return NextResponse.json({ success: false, error: "Please enter the valid email." })
             }
-            // console.log(reqBody.email)
         }
-        sendotp(undefined, JSON.stringify(reqBody)).then(() => {
-            return NextResponse.json({ success: true }, { status: 200 })
-        }).catch(()=>{
-            return NextResponse.json({ success: false }, { status: 200 })
-        })
-        // console.log(result)
+        let output = await sendotp(undefined, JSON.stringify(reqBody))
+        return NextResponse.json({success: output?true:false})
         // if (result)
     } catch (error) {
-        // console.log(error)
         return NextResponse.json({ error }, { status: 500 })
     }
 }

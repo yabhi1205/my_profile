@@ -1,5 +1,10 @@
 "use client"
+
+import { useState } from "react"
+import Alert from "./alert"
+
 export default function Contact() {
+    const [hidden, setHidden] = useState(false)
     const submit = async () => {
         let response = await fetch("/api",
             {
@@ -16,13 +21,16 @@ export default function Contact() {
                     "message": document.getElementById("message").value
                 })
             })
-        response = await response.json()
-        console.log(response)
-        // console.log(document.getElementById("floating_first_name").value)
+        let final = await response.json()
+        setHidden(true)
+        setTimeout(() => {
+            setHidden(false)
+        }, 10000);
     }
     return (
         <div id="contactSection" value="navContact" >
             <div id="contact" className="lg:w-5/12 max-lg:w-screen max-lg:px-5 mx-auto h-max mt-24 mb-32">
+                {hidden && <Alert setHidden={setHidden}/>}
                 <div className=" lg:border-2 lg:border-blue-800 lg:p-8 lg:pt-8 lg:rounded-3xl lg:shadow-xl lg:transition lg:ease-in-out lg:duration-700 lg:hover:scale-105 lg:shadow-blue-800">
                     <h1 className="text-6xl font-semibold pb-8">Contact</h1>
                     <form onSubmit={() => { return false }}>
