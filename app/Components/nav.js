@@ -14,6 +14,19 @@ export default function Nav() {
         });
         // }
     }, [])
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+            if (open && !event.target.closest(".dropdown")) {
+                nav.getElementsByTagName("nav")[0].classList.toggle("scroll", window.scrollY > 1);
+            }
+        };
+
+        document.addEventListener("click", handleOutsideClick);
+
+        return () => {
+            document.removeEventListener("click", handleOutsideClick);
+        };
+    }, [open]);
     return (
         <>
             <div className="fixed w-screen m-0 max-h-max z-50 text-xl">
@@ -109,11 +122,11 @@ export default function Nav() {
                                         >Home</Link>
                                     </li>
                                     <li>
-                                        <Link href="#projects" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        <Link href="#projects" className="block px-4 py-2 text-2xl hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                             scroll={false} onClick={(e) => {
                                                 e.preventDefault();
                                                 document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
-                                            }}>Projects</Link>
+                                            }}>Abhinav</Link>
                                     </li>
                                     <li>
                                         <Link href="#aboutme" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
