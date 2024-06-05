@@ -6,7 +6,10 @@ const sendotp = async (Email = process.env.userkanaam, Otp = "Thanks For Contact
     const sabkapass = process.env.PASSWORD
     return new Promise(function (resolve, reject) {
         let transporter = nodemailer.createTransport({
-            service: "outlook",
+            service: "gmail",
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false,
             auth: {
                 user: userkanaam,
                 pass: sabkapass
@@ -14,7 +17,7 @@ const sendotp = async (Email = process.env.userkanaam, Otp = "Thanks For Contact
         });
 
         const option = {
-            from: userkanaam,
+            from: "support@abhinavyadav.xyz",
             to: Email,
             subject: "Contact from Portfolio",
             text: Otp,
