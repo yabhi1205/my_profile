@@ -8,7 +8,7 @@ export default function SkeletonLoader() {
         // < !--component -- >
         <div className="h-screen bg-white">
             <div className="flex justify-center items-center h-full">
-                <Image className="h-16 w-16" src={img} width={300} height={300} alt=""/>
+                <Image className="h-16 w-16" src={img} width={300} height={300} alt="Skeleton Image"/>
             </div>
         </div>
     )

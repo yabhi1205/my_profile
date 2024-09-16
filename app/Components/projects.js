@@ -14,7 +14,7 @@ export default function Projects() {
                         return (
                             <div key={project.name} className=" select-none text-black dark:text-white max-w-sm m-4 p-6 image border border-gray-200 rounded-lg shadow bg-transparent overflow-hidden">
                                 <div className="absolute w-screen h-screen top-0 left-0 -z-20 bg-gray-100 dark:bg-gray-900"></div>
-                                <img className="absolute image_rt w-5/5 h-5/5 top-0 left-0 scale-125 -z-10 bg-blend-darken opacity-50 dark:opacity-40" src="https://img.freepik.com/premium-photo/top-view-workspace-with-copy-space_23-2148236849.jpg?w=740" />
+                                <img className="absolute image_rt w-5/5 h-5/5 top-0 left-0 scale-125 -z-10 bg-blend-darken opacity-50 dark:opacity-40" alt="project background" src="https://img.freepik.com/premium-photo/top-view-workspace-with-copy-space_23-2148236849.jpg?w=740" />
                                 <p className="mb-2 text-2xl font-bold tracking-tight text-black opacity-100 dark:text-white">{project.name}</p>
                                 <div className="mb-3 font-medium text-black dark:text-white">{project.description.p.length > 100 ? `${project.description.p.slice(0, 100)}...` : project.description.p}</div>
                                 <button type="button" key={project.name} onClick={(e) => { setProject(e.target.name); setHidden(true) }} name={JSON.stringify(project)} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

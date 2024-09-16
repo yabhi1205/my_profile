@@ -55,7 +55,7 @@ export default function About() {
                     </div>}
                     <div className="lg:w-7/12 p-4 max-lg:w-full container">
                         <div className="relative flex">
-                            <Image className=" relative mx-auto  " color="black" width={500} height={500} src={profile} />
+                            <Image className=" relative mx-auto" alt="Abhinav Yadav Profile" color="black" width={500} height={500} src={profile} />
                             {/* <Image className=" mx-auto absolute ml-32 scale-105 blur-lg -z-10 filter drop-shadow-profile " color="white" width={500} height={500} src={profile} /> */}
                         </div>
                     </div>
